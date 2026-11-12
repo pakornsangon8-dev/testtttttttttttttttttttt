@@ -4,7 +4,7 @@ import streamlit as st
 import os
 import sys
 import plotly.express as px
-from datetime import datetime
+from datetime import datetime, timedelta
 import re  # ใช้งาน Regular Expression
 
 # --- 1. กำหนดตำแหน่งและชื่อไฟล์ Database ---
@@ -365,6 +365,7 @@ with st.sidebar:
     if is_using_supabase():
         st.success("☁️ ฐานข้อมูล: Supabase (Online)")
     else:
+        now_th = datetime.utcnow() + timedelta(hours=7)
         st.caption(f"📅 วันที่ปัจจุบัน: {datetime.now().strftime('%d/%m/%Y')}")
     st.caption(f"⏰ เวลา: {datetime.now().strftime('%H:%M น.')}")
 
