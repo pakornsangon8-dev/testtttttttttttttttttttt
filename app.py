@@ -362,12 +362,12 @@ with st.sidebar:
         label_visibility="collapsed"
     )
     st.divider()
-        if is_using_supabase():
-            st.success("☁️ ฐานข้อมูล: Supabase (Online)")
-        else:
-            now_th = datetime.utcnow() + timedelta(hours=7)
-            st.caption(f"📅 วันที่ปัจจุบัน: {now_th.strftime('%d/%m/%Y')}")
-            st.caption(f"⏰ เวลา: {now_th.strftime('%H:%M น.')}")
+if is_using_supabase():
+    st.success("☁️ ฐานข้อมูล: Supabase (Online)")
+else:
+    now_th = datetime.utcnow() + timedelta(hours=7)
+    st.caption(f"📅 วันที่ปัจจุบัน: {now_th.strftime('%d/%m/%Y')}")
+    st.caption(f"⏰ เวลา: {now_th.strftime('%H:%M น.')}")
 
 # ==============================================================================
 # 1. แดชบอร์ดสรุปผล
